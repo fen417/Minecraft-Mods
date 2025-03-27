@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4  # Обновлена до последней версии
+      uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -23,38 +23,38 @@ jobs:
 
     - name: Generate Mods Manifest
       run: |
-        # Создаем JSON-файл с информацией о модах
-        python3 - << EOF
-import json
-import os
-from datetime import datetime
+        mkdir -p mods
+        python3 << EOF
+        import json
+        import os
+        from datetime import datetime
 
-mods_dir = 'mods'
-mods_list = []
+        mods_dir = 'mods'
+        mods_list = []
 
-for filename in os.listdir(mods_dir):
-    if filename.endswith('.jar'):
-        mod_name = os.path.splitext(filename)[0]
-        download_url = f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/releases/download/mods/{filename}"
-        
-        mods_list.append({
-            "name": mod_name,
-            "filename": filename,
-            "download_url": download_url
-        })
+        for filename in os.listdir(mods_dir):
+            if filename.endswith('.jar'):
+                mod_name = os.path.splitext(filename)[0]
+                download_url = f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/releases/download/mods/{filename}"
+                
+                mods_list.append({
+                    "name": mod_name,
+                    "filename": filename,
+                    "download_url": download_url
+                })
 
-manifest = {
-    "version": datetime.now().strftime("%Y%m%d%H%M"),
-    "minecraft_version": "1.20.1",
-    "mods": mods_list
-}
+        manifest = {
+            "version": datetime.now().strftime("%Y%m%d%H%M"),
+            "minecraft_version": "1.20.1",
+            "mods": mods_list
+        }
 
-with open('mods-manifest.json', 'w') as f:
-    json.dump(manifest, f, indent=2)
+        with open('mods-manifest.json', 'w') as f:
+            json.dump(manifest, f, indent=2)
 
-print("Manifest generated:")
-print(json.dumps(manifest, indent=2))
-EOF
+        print("Manifest generated:")
+        print(json.dumps(manifest, indent=2))
+        EOF
 
     - name: Upload Manifest as Artifact
       uses: actions/upload-artifact@v4
