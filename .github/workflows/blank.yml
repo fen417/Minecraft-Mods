@@ -1,0 +1,55 @@
+name: Generate Mods Manifest
+
+on:
+  push:
+    paths:
+      - 'mods/**'
+  workflow_dispatch:
+
+jobs:
+  generate-manifest:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Generate Mods Manifest
+      run: |
+        # Создаем JSON-файл с информацией о модах
+        echo '{
+          "version": "'$(date +%Y%m%d%H%M)'",
+          "minecraft_version": "1.20.1",
+          "mods": [' > mods-manifest.json
+
+        # Перебираем все JAR-файлы в папке модов
+        first=true
+        for mod in mods/*.jar; do
+          if [ -f "$mod" ]; then
+            filename=$(basename "$mod")
+            name=$(echo "$filename" | sed 's/\.jar$//')
+            download_url="https://github.com/${{ github.repository }}/releases/download/mods/$(basename "$mod")"
+            
+            if [ "$first" = true ]; then
+              first=false
+            else
+              echo ',' >> mods-manifest.json
+            fi
+            
+            echo '{
+              "name": "'"$name"'",
+              "filename": "'"$filename"'",
+              "download_url": "'"$download_url"'"
+            }' >> mods-manifest.json
+          fi
+        done
+
+        echo ']
+        }' >> mods-manifest.json
+
+        # Показываем содержимое для проверки
+        cat mods-manifest.json
+
+    - name: Upload Manifest
+      uses: actions/upload-artifact@v3
+      with:
+        name: mods-manifest
+        path: mods-manifest.json
