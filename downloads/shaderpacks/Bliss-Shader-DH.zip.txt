@@ -1,2 +1,0 @@
-#Tue Sep 24 22:44:57 EEST 2024
-BorderFog=false
