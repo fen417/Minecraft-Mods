@@ -1,0 +1,118 @@
+[
+  {
+    "mob": "minecraft:wither",
+    "when": "onjoin",
+    "setphase": "wither",
+    "result": "default"
+  },
+  {
+    "mob": "minecraft:enderman",
+    "dimension": "minecraft:the_nether",
+    "result": "deny"
+  },
+  {
+    "mob": "minecraft:enderman",
+    "dimension": "minecraft:overworld",
+    "result": "deny"
+  },
+  {
+    "mob": "minecraft:enderman",
+    "dimension": "minecraft:the_end",
+    "result": "allow"
+  },
+  {
+    "mob": "born_in_chaos_v1:zombie_bruiser",
+    "dimension": "minecraft:overworld",
+    "result": "deny"
+  },
+  {
+    "mob": "born_in_chaos_v1:dread_hound",
+    "dimension": "minecraft:overworld",
+    "result": "deny"
+  },
+  {
+    "mob": "born_in_chaos_v1:corpse_fly",
+    "dimension": "minecraft:overworld",
+    "result": "deny"
+  },
+  {
+    "mob": "minecraft:wither",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:creeper",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:enderman",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:witch",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:spider",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:skeleton",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:silverfish",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:blaze",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:ghast",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:evoker",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:vindicator",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:pillager",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:ravager",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:ender_dragon",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:guardian",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  },
+  {
+    "mob": "minecraft:elder_guardian",
+    "healthmultiply": 2.5,
+    "damagemultiply": 2.5
+  }
+]

@@ -1,0 +1,2 @@
+#Sun Sep 22 20:59:48 EEST 2024
+MOTION_BLUR=false

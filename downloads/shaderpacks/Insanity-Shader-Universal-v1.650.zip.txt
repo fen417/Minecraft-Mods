@@ -1,0 +1,5 @@
+#Thu Jan 30 19:36:39 EET 2025
+shadowDistance=128.0
+REFLECTION=1
+shadowMapResolution=1024
+ADVANCED_MATERIALS=false

@@ -1,0 +1,20 @@
+[
+{
+    "mob": "minecraft:wither_skeleton",
+    "persecond": 5,
+    "attempts": 20,
+    "phase": "wither",
+    "amount": {
+      "minimum": 1,
+      "maximum": 1
+    },
+    "conditions": {
+      "dimension": "minecraft:overworld",
+      "mindist": 20,
+      "maxdist": 90,
+      "minheight": -64,
+      "maxheight": 256,
+      "maxthis": 10
+    }
+  }
+]

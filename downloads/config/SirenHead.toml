@@ -1,0 +1,19 @@
+
+[General]
+	#Should siren head break leaves | reduces spawn frequency in dense forested areas
+	"Break leaves" = true
+	#Should Siren Head cause some destruction while doing melee attacks(won't destroy chests)
+	"Destroy Blocks with melee" = true
+	#Minimum time in ticks until siren head gets 'bored' when wandering around
+	"Min waiting time" = 3000.0
+	#Maximum time in ticks until siren head gets 'bored' when wandering around
+	"Max waiting time" = 5000.0
+	#Minimum time in ticks siren head will stalk the player
+	"Min stalking time" = 4000.0
+	#Maximum time in ticks siren head will stalk the player
+	"Max stalking time" = 6000.0
+	#Minimum delay in ticks between siren head spawn events
+	"Min spawn delay" = 14000.0
+	#Maximum delay in ticks between siren head spawn events
+	"Max spawn delay" = 18000.0
+
