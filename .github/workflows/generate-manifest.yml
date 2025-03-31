@@ -34,13 +34,17 @@ jobs:
 
         for filename in os.listdir(mods_dir):
             if filename.endswith('.jar'):
+                file_path = os.path.join(mods_dir, filename)
+                with open(file_path, 'rb') as f:
+                file_hash = hashlib.md5(f.read()).hexdigest()
                 mod_name = os.path.splitext(filename)[0]
                 download_url = f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/releases/download/mods/{filename}"
                 
                 mods_list.append({
                     "name": mod_name,
                     "filename": filename,
-                    "download_url": download_url
+                    "download_url": download_url,
+                    "hash": file_hash
                 })
 
         manifest = {
