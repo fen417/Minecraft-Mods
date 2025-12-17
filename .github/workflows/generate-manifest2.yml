@@ -1,0 +1,70 @@
+name: Generate Mods Manifest
+on:
+  push:
+    paths:
+      - 'mods1/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate-manifest:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+    - name: Generate Mods Manifest
+      run: |
+        mkdir -p mods1
+        python3 << EOF
+        import json
+        import os
+        import hashlib
+        from datetime import datetime
+        
+        mods_dir = 'mods1'
+        mods_list = []
+        
+        for filename in os.listdir(mods_dir):
+            if filename.endswith('.jar'):
+                file_path = os.path.join(mods_dir, filename)
+                with open(file_path, 'rb') as f:
+                    file_hash = hashlib.md5(f.read()).hexdigest()
+                
+                mod_name = os.path.splitext(filename)[0]
+                download_url = f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/releases/download/mods/{filename}"
+                
+                mods_list.append({
+                    "name": mod_name,
+                    "filename": filename,
+                    "download_url": download_url,
+                    "hash": file_hash
+                })
+                
+        manifest = {
+            "version": datetime.now().strftime("%Y%m%d%H%M"),
+            "minecraft_version": "1.20.1",
+            "mods": mods_list
+        }
+        
+        with open('mods-manifest.json', 'w') as f:
+            json.dump(manifest, f, indent=2)
+            
+        print("Manifest generated:")
+        print(json.dumps(manifest, indent=2))
+        EOF
+    - name: Upload Manifest as Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: mods-manifest
+        path: mods-manifest.json
+    - name: Create Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: mods-manifest.json
+        tag_name: mods-latest
+        name: Mods Manifest
+        body: Automatically generated mods manifest
