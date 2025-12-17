@@ -1,4 +1,4 @@
-name: Generate Mods Manifest
+name: Generate Mods Manifest2
 on:
   push:
     paths:
@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.x'
-    - name: Generate Mods Manifest
+    - name: Generate Mods Manifest2
       run: |
         mkdir -p mods1
         python3 << EOF
@@ -35,7 +35,7 @@ jobs:
                     file_hash = hashlib.md5(f.read()).hexdigest()
                 
                 mod_name = os.path.splitext(filename)[0]
-                download_url = f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/releases/download/mods/{filename}"
+                download_url = f"https://github.com/{os.environ['GITHUB_REPOSITORY']}/releases/download/mods1/{filename}"
                 
                 mods_list.append({
                     "name": mod_name,
@@ -50,7 +50,7 @@ jobs:
             "mods": mods_list
         }
         
-        with open('mods-manifest.json', 'w') as f:
+        with open('mods-manifest2.json', 'w') as f:
             json.dump(manifest, f, indent=2)
             
         print("Manifest generated:")
@@ -66,5 +66,5 @@ jobs:
       with:
         files: mods-manifest2.json
         tag_name: mods-latest
-        name: Mods Manifest
+        name: Mods Manifest2
         body: Automatically generated mods manifest
