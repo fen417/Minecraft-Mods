@@ -4,11 +4,12 @@
     "fancymenu_data/",
     "fancymenu_setups/",
     "ftbquests/",
+    "kubejs/",
     "resourcepacks/",
     "datapacks/",
     "shaderpacks/",
 	"options.txt",
 	"optionsof.txt",
-	"pointblanks",
+	"defaultconfigs/",
 	"optionsshaders.txt"
 ]

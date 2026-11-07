@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+downloads/downloads.zip filter=lfs diff=lfs merge=lfs -text
+mods/L_Enders_Cataclysm-3.16.jar filter=lfs diff=lfs merge=lfs -text
+mods/zmedievalmusic-1.20.1-2.2.jar filter=lfs diff=lfs merge=lfs -text

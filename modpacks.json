@@ -1,9 +1,9 @@
 [
   {
     "Id": "modpack1",
-    "MinecraftVersion": "1.21.1",
-    "ModLoaderType": "NeoForge",
-    "ModLoaderVersion": "21.1.230"
+    "MinecraftVersion": "1.20.1",
+    "ModLoaderType": "Forge",
+    "ModLoaderVersion": "latest"
   },
   {
     "Id": "modpack2",
