@@ -1,0 +1,14 @@
+[
+  {
+    "Id": "modpack1",
+    "MinecraftVersion": "1.21.1",
+    "ModLoaderType": "NeoForge",
+    "ModLoaderVersion": "21.1.230"
+  },
+  {
+    "Id": "modpack2",
+    "MinecraftVersion": "1.21.11",
+    "ModLoaderType": "Fabric",
+    "ModLoaderVersion": "latest"
+  }
+]
