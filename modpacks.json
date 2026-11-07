@@ -7,7 +7,7 @@
   },
   {
     "Id": "modpack2",
-    "MinecraftVersion": "1.21.11",
+    "MinecraftVersion": "1.20.1",
     "ModLoaderType": "Fabric",
     "ModLoaderVersion": "latest"
   }
