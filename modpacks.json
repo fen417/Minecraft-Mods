@@ -3,7 +3,7 @@
     "Id": "modpack1",
     "MinecraftVersion": "1.20.1",
     "ModLoaderType": "Forge",
-    "ModLoaderVersion": "latest"
+    "ModLoaderVersion": "47.4.28"
   },
   {
     "Id": "modpack2",
