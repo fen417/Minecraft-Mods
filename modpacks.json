@@ -1,12 +1,14 @@
 [
   {
     "Id": "modpack1",
+    "DisplayName": "All of Create",
     "MinecraftVersion": "1.20.1",
     "ModLoaderType": "Forge",
     "ModLoaderVersion": "47.4.28"
   },
   {
     "Id": "modpack2",
+    "DisplayName": "Vanilla Fabric",
     "MinecraftVersion": "1.20.1",
     "ModLoaderType": "Fabric",
     "ModLoaderVersion": "latest"

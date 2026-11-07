@@ -3,6 +3,7 @@
 Версии для новой версии MinecraftLauncher задаются в [modpacks.json](modpacks.json). После изменения файла перезапустите лаунчер; пересборка лаунчера не нужна.
 
 - `Id`: `modpack1` — All of Create (`mods/`); `modpack2` — Vanilla Fabric (`mods1/`). Сохраняйте обе записи и их ID.
+- `DisplayName`: название в заголовке лаунчера и подсказке вкладки. Меняйте его свободно, сохраняя `Id`. Пустое или отсутствующее поле оставляет встроенное название.
 - `MinecraftVersion`: точная версия Minecraft, совместимая с модами.
 - `ModLoaderType`: `Forge`, `NeoForge`, `Fabric` или `Vanilla`.
 - `ModLoaderVersion`: точная версия выбранного загрузчика. Для Fabric также допустимо `latest` (последняя стабильная совместимая версия). Для Vanilla укажите пустую строку.
