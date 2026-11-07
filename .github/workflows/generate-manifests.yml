@@ -1,0 +1,48 @@
+name: Generate modpack manifests
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'modpacks.json'
+      - '**/*.jar'
+      - '**/*.zip'
+      - 'scripts/**'
+      - '.github/workflows/generate-manifests.yml'
+  pull_request:
+    paths:
+      - 'modpacks.json'
+      - 'scripts/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: modpack-manifests-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test generator
+        run: node --test scripts/*.test.mjs
+      - name: Generate all packs from one commit
+        run: node scripts/generate-manifests.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: modpack-manifests
+          path: generated/*.json
+      - name: Publish manifests
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: generated/*.json
+          tag_name: mods-latest
+          name: Modpack manifests
+          body: Generated from modpacks.json. Runtime versions and file hashes belong to one commit.
+          fail_on_unmatched_files: true
