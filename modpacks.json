@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "modpacks": [
+    {
+      "id": "larston",
+      "name": "Dawn of Larston",
+      "minecraft_version": "1.21.1",
+      "mod_loader": "neoforge",
+      "mod_loader_version": "21.1.265",
+      "mods_directory": "mods",
+      "additional_files": "downloads/downloads.zip",
+      "legacy_manifest": "mods-manifest.json"
+    },
+    {
+      "id": "fabric",
+      "name": "Fabric",
+      "minecraft_version": "1.21.11",
+      "mod_loader": "fabric",
+      "mod_loader_version": "0.20.1",
+      "mods_directory": "mods1",
+      "additional_files": "downloads/downloads2.zip",
+      "legacy_manifest": "mods-manifest2.json"
+    }
+  ]
+}
